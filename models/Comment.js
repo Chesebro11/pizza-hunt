@@ -22,8 +22,7 @@ const ReplySchema = new Schema(
     },
     {
       toJSON: {
-        getters: true,
-        virtuals: true
+        getters: true
       }
     }
   );
@@ -52,9 +51,9 @@ const ReplySchema = new Schema(
       id: false
     }
   );
-
+  
   CommentSchema.virtual('replyCount').get(function() {
-      return this.replies.length;
+    return this.replies.length;
   });
 
 const Comment = model('Comment', CommentSchema);
